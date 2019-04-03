@@ -1,0 +1,73 @@
+\documentclass[a4]{report}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Title Page
+\title{Project plan\\Computer Vision assignment}
+\author{Imrich Štoffa\\Alex Lukoshkin}
+
+\begin{document}
+\maketitle
+
+\chapter*{Plan}
+
+\section*{Following question need to be answered:}
+\begin{itemize}
+    \item What is the current state of the assignment? What has been already done? Which codes are already available?
+    \item Which problems are recognized but not yet solved?
+    \item What is still missing? What is the timetable for the remaining tasks?
+\end{itemize}
+
+The task, as we understood, is to make robot hand manipulate colour cubes. The kinect camera available provides images of scene, and information about depth. Robot hand reacts to movement commands in robot coordinates, plus gripping. 
+
+We have robot hand, 4 cubes and camera available in this task. Main idea is to recognise from pictures where cubes are in camera frame, get their world coordinates and change positions of objects.
+
+First we need to do camera calibration. Output of this step is camera to world transformation matrix, as a-priori knowledge we have measurements of scene and images of the same scene. Having this information, we can attribute real world coordinates to corners of cubes detected on the camera frames, which is necessary in order to manipulate the cubes. ...
+
+\setcounter{chapter}{1}
+\setcounter{section}{-1}
+
+\section{State of assignment}
+
+We have gathered a-priori data about scene, this was needed for later camera calibration. By a-priori data we mean calibration pictures and measurements from scene. We did preliminary analysis of what will constitute our solution. From the exercises some functions that will be required in solution are already implemented. Eg.: corner detection using Tomasi-Kanade method, circle, ellipse fitting and more. We set up project management tool at trello. 
+
+\section{Available codes}
+
+\begin{itemize}
+    \item canny edge detection
+    \item corner detection by Tomasi-Kanade.
+    \item shape fitting algorithms
+    \item camera parameter estimation algorithm
+    \item transformations between frames of reference (camera | worlds | robot)
+    \item segmentation procedures from matlab library
+    \item kinect camera library
+    \item robot hand library
+\end{itemize}
+
+
+\section{Recognized problems}
+From the knowledge gained from exercises, tasks and lectures we identified following problems which we did not solve yet.
+\begin{itemize}
+    \item Image to world coordinates transformation for corners.
+    \item Colour segmentation to identify world coords of cubes.
+   %\item Camera calibration using a-priori information about scene.
+    \item Cube manipulation algorithm.
+\end{itemize}
+
+We are missing the high level framework that will put together all the procedures we have. As first thing in project, we should establish the skeleton of program, agree on interfaces between modules and then we will assign the tasks and start filling in the missing parts.
+
+\subsection*{Timeline}
+Deadline is let's say 24.4. Following steps need to be taken, to achieve the goal of assignment. To achieve optimal progress, at least half of following tasks should be finished in two weeks.
+\begin{itemize}
+    \item Set up git repository
+    \item Write program skeleton/structure, design processing pipeline.
+    \subitem Revise already working code.
+    \subitem Solve transformation to world coords.
+    \subitem Solve colour segmentation.
+    \item Aim to achieve minimal functionality - get coordinate of red cube
+    \item Move randomly places cube to destination world coords.
+    \item Created desired arrangement using all cubes.
+\end{itemize}
+
+\end{document}          
