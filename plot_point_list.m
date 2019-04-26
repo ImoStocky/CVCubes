@@ -11,7 +11,7 @@ function f = plot_point_list(P,color)
         y=1;
     end
         
-    f=plot(P(3,:),P(2,:),color);
+    f=plot(P(x,:),P(y,:),color);
 end
 
     
